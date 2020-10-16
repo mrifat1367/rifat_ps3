@@ -1,1 +1,11 @@
+# Problem set 3
 
+# Question 1
+
+# Installing Package
+!pip install pandas
+import pandas as pd
+
+#Reading file
+mydata = pd.read_csv("https://raw.githubusercontent.com/CompTools/Class_Files/master/data/CO-OPS__8729108__wl.csv")
+print(mydata)
