@@ -9,3 +9,11 @@ import pandas as pd
 #Reading file
 mydata = pd.read_csv("https://raw.githubusercontent.com/CompTools/Class_Files/master/data/CO-OPS__8729108__wl.csv")
 print(mydata)
+
+highest = None
+print('Before:', highest)
+for i in [3, 41, 12, 9, 74, 15]: #Insert column number
+    if highest is None or highest < i:
+        highest = i
+    print('Loop:', i, highest)
+print('highest:', highest)
