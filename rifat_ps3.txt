@@ -18,3 +18,4 @@ for i in x[i]:
         highest = i
     print('Loop:', i, highest)
 print('highest:', highest)
+mydata.loc[mydata.iloc[:,1] == highest] #Finding the date with highest water level
