@@ -34,6 +34,7 @@ average = (x.sum()/len(x))
 print(average)
 
 #Question 3
+df = x
 df["change"] = df.diff()
 print(df)
 y = df.iloc[df["change"].idxmax()]
