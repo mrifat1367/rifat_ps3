@@ -13,6 +13,13 @@ print(mydata)
 x = mydata.iloc[:,[1]]
 highest = None
 print('Before:', highest)
+for i in x:
+    if highest is None or highest < i:
+        highest = i
+    print('Loop:', i, highest)
+print('highest:', highest)
+highest = None
+print('Before:', highest)
 for i in x[i]:
     if highest is None or highest < i:
         highest = i
