@@ -26,3 +26,9 @@ for i in x[i]:
     print('Loop:', i, highest)
 print('highest:', highest)
 mydata.loc[mydata.iloc[:,1] == highest] #Finding the date with highest water level
+
+#Question 2
+mydata.iloc[mydata.iloc[:,1].idxmax()]
+mydata.iloc[mydata.iloc[:,1].idxmin()]
+average = (x.sum()/len(x))
+print(average)
