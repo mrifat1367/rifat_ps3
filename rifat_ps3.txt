@@ -9,3 +9,36 @@ import pandas as pd
 #Reading file
 mydata = pd.read_csv("https://raw.githubusercontent.com/CompTools/Class_Files/master/data/CO-OPS__8729108__wl.csv")
 print(mydata)
+
+x = mydata.iloc[:,[1]]
+highest = None
+print('Before:', highest)
+for i in x:
+    if highest is None or highest < i:
+        highest = i
+    print('Loop:', i, highest)
+print('highest:', highest)
+highest = None
+print('Before:', highest)
+for i in x[i]:
+    if highest is None or highest < i:
+        highest = i
+    print('Loop:', i, highest)
+print('highest:', highest)
+mydata.loc[mydata.iloc[:,1] == highest] #Finding the date with highest water level
+
+#Question 2
+mydata.iloc[mydata.iloc[:,1].idxmax()]
+mydata.iloc[mydata.iloc[:,1].idxmin()]
+average = (x.sum()/len(x))
+print(average)
+
+#Question 3
+df["change"] = df.diff()
+print(df)
+y = df.iloc[df["change"].idxmax()]
+print(y)
+fastest = y[0]
+mydata.loc[mydata.iloc[:,1] == fastest]
+
+#Question 4
