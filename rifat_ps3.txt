@@ -32,3 +32,13 @@ mydata.iloc[mydata.iloc[:,1].idxmax()]
 mydata.iloc[mydata.iloc[:,1].idxmin()]
 average = (x.sum()/len(x))
 print(average)
+
+#Question 3
+df["change"] = df.diff()
+print(df)
+y = df.iloc[df["change"].idxmax()]
+print(y)
+fastest = y[0]
+mydata.loc[mydata.iloc[:,1] == fastest]
+
+#Question 4
