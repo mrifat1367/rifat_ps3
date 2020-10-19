@@ -27,14 +27,16 @@ mydata.loc[mydata.iloc[:,1] == highest]
 
 #Question 2
 # Date and time of Maximum Water level
-mydata.iloc[mydata.iloc[:,1].idxmax()]
+mx = mydata.iloc[mydata.iloc[:,1].idxmax()]
+print("Maximum water level:\n",mx)
 
 # Date and time of Minimum Water level
-mydata.iloc[mydata.iloc[:,1].idxmin()]
+mn = mydata.iloc[mydata.iloc[:,1].idxmin()]
+print("Minimum water level:\n",mn)
 
 #Average Water Level
 average = (x.sum()/len(x))
-print(average)
+print("Average water level \n:",average)
 
 #Question 3
 df = x
