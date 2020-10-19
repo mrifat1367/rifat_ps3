@@ -1,19 +1,20 @@
 # Problem set 3
+import math    #In case if needed
+import numpy as np
+
+# Installing Package
+!pip install pandas Code to install panda
+import pandas as pd
 
 # Question 1
 
-# Installing Package
-!pip install pandas
-import pandas as pd
-import math
-import numpy as np
-
 #Reading file
-data = pd.read_csv("https://raw.githubusercontent.com/CompTools/Class_Files/master/data/CO-OPS__8729108__wl.csv")
-mydata = pd.DataFrame(data)
-print(mydata)
-x = mydata.iloc[:,[1]]
-x.columns = ['Water_Level']
+data = pd.read_csv("https://raw.githubusercontent.com/CompTools/Class_Files/master/data/CO-OPS__8729108__wl.csv") #Importing file from github.
+mydata = pd.DataFrame(data) #Framing data
+print(mydata) #Checking if everything is okay
+x = mydata.iloc[:,[1]] #Cut column containing Water Level
+x.columns = ['Water_Level'] #Renaming column
+# Creating a loop to read through the file line by line 
 highest = None
 print('Before:', highest)
 for i in x['Water_Level']:
@@ -21,34 +22,43 @@ for i in x['Water_Level']:
         highest = i
     print('Loop:', i, highest)
 print('highest:', highest)
-mydata.loc[mydata.iloc[:,1] == highest] #Finding the date with highest water level
+#Date and time with highest water level
+mydata.loc[mydata.iloc[:,1] == highest] 
 
 #Question 2
+# Date and time of Maximum Water level
 mydata.iloc[mydata.iloc[:,1].idxmax()]
+
+# Date and time of Minimum Water level
 mydata.iloc[mydata.iloc[:,1].idxmin()]
+
+#Average Water Level
 average = (x.sum()/len(x))
 print(average)
 
 #Question 3
 df = x
-df["change"] = df.diff()
+df["change"] = df.diff() #New column containing change in Water Level
 print(df)
 y = df.iloc[df["change"].idxmax()]
 print(y)
-fastest = y[0]
-mydata.loc[mydata.iloc[:,1] == fastest]
+fastest = y[0] #Value of the fastest rise
+mydata.loc[mydata.iloc[:,1] == fastest] #Location of the fastest rise
 
 #Question 4
+# Check if the water level increases more than 0.25 since the previous recording.
+# Check the time point when no recording is recieved.
+
 for j in x["Water_Level"]:
     if 5 < j:
         print("Warning: Water Level is above 5.0 and the reading is:",j)
- df = x
 df["change"] = df.diff()
 print(df)
+
+#Check if the water level is over 5.0.
 for k in df["change"]:
     if 0.25 < k:
         print("Warning: Water is rising very fast and the rate is:",k)
-df
 z = df.isnull()
 count =0
 for l in z["Water_Level"]:
