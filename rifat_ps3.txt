@@ -48,3 +48,10 @@ print(df)
 for k in df["change"]:
     if 0.25 < k:
         print("Warning: Water is rising very fast and the rate is:",k)
+df
+z = df.isnull()
+count =0
+for l in z["Water_Level"]:
+    count +=1
+    if l is True :
+        print(count,"Warning:No reading is received at a time point")
