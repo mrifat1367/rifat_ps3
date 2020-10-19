@@ -63,6 +63,7 @@ print(df)
 for k in df["change"]:
     if 0.25 < k:
         print("Warning: Water is rising very fast and the rate is:",k)
+print("\n")
         
 # Check the time point when no recording is recieved.
 z = df.isnull()
