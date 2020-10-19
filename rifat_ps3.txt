@@ -5,22 +5,18 @@
 # Installing Package
 !pip install pandas
 import pandas as pd
+import math
+import numpy as np
 
 #Reading file
-mydata = pd.read_csv("https://raw.githubusercontent.com/CompTools/Class_Files/master/data/CO-OPS__8729108__wl.csv")
+data = pd.read_csv("https://raw.githubusercontent.com/CompTools/Class_Files/master/data/CO-OPS__8729108__wl.csv")
+mydata = pd.DataFrame(data)
 print(mydata)
-
 x = mydata.iloc[:,[1]]
+x.columns = ['Water_Level']
 highest = None
 print('Before:', highest)
-for i in x:
-    if highest is None or highest < i:
-        highest = i
-    print('Loop:', i, highest)
-print('highest:', highest)
-highest = None
-print('Before:', highest)
-for i in x[i]:
+for i in x['Water_Level']:
     if highest is None or highest < i:
         highest = i
     print('Loop:', i, highest)
@@ -43,3 +39,12 @@ fastest = y[0]
 mydata.loc[mydata.iloc[:,1] == fastest]
 
 #Question 4
+for j in x["Water_Level"]:
+    if 5 < j:
+        print("Warning: Water Level is above 5.0 and the reading is:",j)
+ df = x
+df["change"] = df.diff()
+print(df)
+for k in df["change"]:
+    if 0.25 < k:
+        print("Warning: Water is rising very fast and the rate is:",k)
