@@ -39,13 +39,16 @@ average = (x.sum()/len(x))
 print("Average water level \n:",average)
 
 #Question 3
+#Question 3
 df = x
 df["change"] = df.diff() #New column containing change in Water Level
 print(df)
 y = df.iloc[df["change"].idxmax()]
 print(y)
 fastest = y[0] #Value of the fastest rise
-mydata.loc[mydata.iloc[:,1] == fastest] #Location of the fastest rise
+print("Fastest rise in water level is: \n", y[1])
+f = mydata.loc[mydata.iloc[:,1] == fastest] #Date and time of the fastest rise
+print("Date and time of fastest rise: \n",f)
 
 #Question 4
 # Check if the water level increases more than 0.25 since the previous recording.
