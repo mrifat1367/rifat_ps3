@@ -47,7 +47,6 @@ mydata.loc[mydata.iloc[:,1] == fastest] #Location of the fastest rise
 
 #Question 4
 # Check if the water level increases more than 0.25 since the previous recording.
-# Check the time point when no recording is recieved.
 
 for j in x["Water_Level"]:
     if 5 < j:
@@ -59,6 +58,8 @@ print(df)
 for k in df["change"]:
     if 0.25 < k:
         print("Warning: Water is rising very fast and the rate is:",k)
+        
+# Check the time point when no recording is recieved.
 z = df.isnull()
 count =0
 for l in z["Water_Level"]:
