@@ -70,4 +70,4 @@ count =0
 for l in z["Water_Level"]:
     count +=1
     if l is True :
-        print(count,"Warning:No reading is received at a time point")
+        print(count,"Warning:No reading is received at this time point")
